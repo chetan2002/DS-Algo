@@ -249,6 +249,21 @@ Node* midpoint(Node* head){
     return slow;
 }
 
+Node* kPointFromLast(Node* head , int k){
+    if(head==NULL or head->next == NULL or k>=length(head)){
+        return head;
+    }
+    Node* slow = head;
+    Node* fast = head;
+    while(k--){
+        fast=fast->next;
+    }
+    while(fast!=NULL){
+        fast = fast->next;
+        slow = slow->next;
+    }
+    return slow;
+}
 
 int main(){
     Node* head=take_input();
@@ -292,7 +307,10 @@ int main(){
     Node* mid = midpoint(head2);
     cout<<mid->data<<endl;
 
-    
+    //Finding kth node from last
+    Node* k = kPointFromLast(head2 , 3);
+    cout<<k->data<<endl;
 
+    
     return 0;
 }
