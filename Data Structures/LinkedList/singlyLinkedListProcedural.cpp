@@ -311,7 +311,48 @@ Node* mergeSort(Node* head){
     Node* c = merge(a,b);
     return c; 
 }
+// create a ll with a cycle
+Node* createLinkedListWithCycle(int p){
+    Node* head = take_input();
+    Node* tail=head;
+    while(tail->next!=NULL){
+        tail=tail->next;
+    }
+    Node* common = kPointFromLast(head , length(head)-p);
+    tail->next = common;
+    return head;
+}
 
+
+//cycle Detection and removal(Floyd's cycle)
+
+bool cycleDetection(Node* &head){
+    if(head==NULL || head->next==NULL){
+        return head;
+    }
+    bool cycle=false;
+    Node* slow = head;
+    Node* fast = head;
+    while(fast!=NULL && fast->next!=NULL){
+        fast=fast->next->next;
+        slow=slow->next;
+        if(fast==slow){
+            cycle = true;   
+            break;
+        }
+    }
+    if(cycle){
+        slow = head;
+        while(slow->next!=fast->next){
+            slow=slow->next;
+            fast = fast->next;
+        }
+        fast->next = NULL;        
+        return true;
+    }else{
+        return false;
+    }
+}
 
 int main(){
     Node* head=take_input();
@@ -363,6 +404,18 @@ int main(){
     Node* c = mergeSort(head2);
     cout<<c<<endl;
 
+    //Cycle Detection
+
+    //create a ll with cycle
+    Node* linkedListWithCycle = createLinkedListWithCycle(3);
+    //Detection and removal of cycle using Floyd algo
+    if(cycleDetection(linkedListWithCycle)){
+        cout<<"A cycle was detected ,which was removed"<<endl;
+        cout<<linkedListWithCycle<<endl;
+    }else{
+        cout<<"No cycle was detected "<<endl;
+        cout<<linkedListWithCycle<<endl;
+    }
 
     return 0;
 }
