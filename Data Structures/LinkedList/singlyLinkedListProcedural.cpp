@@ -12,6 +12,7 @@ class Node{
         }
 };
 
+
 //finding length of linkedlist
 int length(const Node* head){
     int cnt=0;
@@ -231,6 +232,24 @@ Node* recursiveReverseOptimised(Node* head){
     return shead;
 }
 
+//finding mid-point of linkedlist
+//using fast-runner technique
+
+Node* midpoint(Node* head){
+    if(head==NULL or head->next == NULL){
+        return head;
+    }
+    Node* slow = head;
+    Node* fast = head->next;
+
+    while(fast!=NULL && fast->next!=NULL){
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    return slow;
+}
+
+
 int main(){
     Node* head=take_input();
     // insertAtHead(head,3);
@@ -268,6 +287,12 @@ int main(){
     //Reverse recursive optimised O(N)
     head2 = recursiveReverseOptimised(head2);
     cout<<head2;
+
+    //Finding mid-point of linkedlist
+    Node* mid = midpoint(head2);
+    cout<<mid->data<<endl;
+
+    
 
     return 0;
 }
