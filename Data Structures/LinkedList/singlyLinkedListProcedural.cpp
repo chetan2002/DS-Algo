@@ -249,6 +249,7 @@ Node* midpoint(Node* head){
     return slow;
 }
 
+//Find kth node from the last
 Node* kPointFromLast(Node* head , int k){
     if(head==NULL or head->next == NULL or k>=length(head)){
         return head;
@@ -264,6 +265,53 @@ Node* kPointFromLast(Node* head , int k){
     }
     return slow;
 }
+
+//MergeSort
+//Merging two linkedlist 
+Node* merge(Node* a , Node* b){
+    //base case
+    if(a==NULL){
+        return b;
+    }
+    if(b==NULL){
+        return a;
+    }
+     
+     //take a head pointer
+     Node* c;
+     if(a->data < b->data){
+         c = a;
+         c->next = merge(a->next , b);
+     }else{
+         c=b;
+         c->next = merge(a , b->next);
+     }
+     return c;
+
+}
+//mergeSort function
+Node* mergeSort(Node* head){
+    //base case
+    if(head == NULL or head->next == NULL){
+        return head;
+    }
+
+    //rec case
+    //1.Break
+    Node* mid = midpoint(head);
+    Node* a = head;
+    Node* b = mid->next;
+    mid->next = NULL;
+
+    //2.sort the two parts
+    a = mergeSort(a);
+    b = mergeSort(b);
+
+    //3. merge them
+    Node* c = merge(a,b);
+    return c; 
+}
+
 
 int main(){
     Node* head=take_input();
@@ -311,6 +359,10 @@ int main(){
     Node* k = kPointFromLast(head2 , 3);
     cout<<k->data<<endl;
 
-    
+    //Sorting the linkedlist
+    Node* c = mergeSort(head2);
+    cout<<c<<endl;
+
+
     return 0;
 }
