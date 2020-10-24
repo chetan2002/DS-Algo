@@ -1,6 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void insertAtBottom(stack<int> &s , int x){
+    if(s.empty()){
+        s.push(x);
+        return;
+    }
+
+    int data = s.top();
+    s.pop();
+    insertAtBottom(s,x);
+    s.push(data);
+}
 void recursionReverse(stack<int> &s){
     if(s.empty()){
         return;
@@ -8,7 +19,7 @@ void recursionReverse(stack<int> &s){
     int x = s.top();
     s.pop();
     recursionReverse(s);
-    s.push(x);
+    insertAtBottom(s,x);
 }
 
 int main(){
