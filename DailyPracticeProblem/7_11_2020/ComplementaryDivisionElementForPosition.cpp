@@ -2,6 +2,23 @@
 using namespace std;
 
 
+//This method also uses prefix and suffix approach but without using extra arrays
+vector<long long int> findMyNewArrayBest(vector<long long int> v){
+    int n= v.size();
+    vector<long long int> newArray(n,1);
+    long long int prefix=1;
+    for(int i=0;i<n;i++){
+        newArray[i] *= prefix;
+        prefix *= v[i];
+    }
+    long long int suffix =1 ;
+    for(int i=n-1 ; i>=0;i--){
+        newArray[i]*=suffix;
+        suffix*=v[i];
+    }
+    return newArray;
+}
+
 //This method uses prefix and suffix array for each position and returns the product of suffix and prefix of the element
 //Time : O(n) and Space : O(3n);
 vector<long long int> findMyNewArrayUsingPrefixArrays(vector<long long int> v){
@@ -37,7 +54,6 @@ vector<long long int> findMyNewArrayUsingPrefixArrays(vector<long long int> v){
 //store the product for all elements and 
 //then for each position divide the product by the element in original array 
 //to get the element in new array
-//consider the zero elements in array 
 //Time:O(n) and space : O(n)
 vector<long long int> findMyNewArrayDivisionMethod(vector<long long int> v){
     int n=v.size();
@@ -102,6 +118,10 @@ int main(){
     //not using division(suffix and prefix array)
     vector<long long int> b = findMyNewArrayUsingPrefixArrays(v);
     print(b);
+
+    //prefix and suffix approach but better
+    vector<long long int> c = findMyNewArrayBest(v);
+    print(c);
 
     return 0;
 }
