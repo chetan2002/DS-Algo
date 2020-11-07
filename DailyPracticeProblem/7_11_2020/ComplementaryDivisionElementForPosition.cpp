@@ -37,17 +37,44 @@ vector<long long int> findMyNewArrayUsingPrefixArrays(vector<long long int> v){
 //store the product for all elements and 
 //then for each position divide the product by the element in original array 
 //to get the element in new array
+//consider the zero elements in array 
 //Time:O(n) and space : O(n)
 vector<long long int> findMyNewArrayDivisionMethod(vector<long long int> v){
     int n=v.size();
     long long int mul = 1;
+    bool isZero = false;
+    int countzero = 0;
     for(auto c: v){
-        mul*=c;
+        if(c==0){
+            isZero=true;
+            countzero++;
+        }else{
+            mul*=c;
+        }
     }
     vector<long long int> a(n,mul);
-    for(int i=0;i<n;i++){
-        a[i] = a[i]/v[i];
+    if(isZero){
+        if(countzero>1){
+            for(int i=0;i<n;i++){
+                a[i] = 0;
+            }
+            return a;
+        }
+        if(countzero==1){
+            for(int i=0;i<n;i++){
+                if(v[i]!=0){
+                    a[i] = 0;
+                }else{
+                    a[i] = mul;
+                }
+            }
+        }
+    }else{
+        for(int i=0;i<n;i++){
+            a[i] = a[i]/v[i];
+        }
     }
+    
     return a;
 }
 
