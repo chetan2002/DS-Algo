@@ -23,10 +23,6 @@ void lexo(string s , string a , int n , vector<string> &v){
 int main(){
 	string s;
 	cin>>s;
-	if(s=="0"){
-		cout<<s<<endl;
-		return 0;
-	}
 	vector<string> v;
 	int n = s.length();
 	lexo(s , "" , n , v);
