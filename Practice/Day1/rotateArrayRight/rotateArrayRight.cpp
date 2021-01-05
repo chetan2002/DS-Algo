@@ -14,6 +14,7 @@ int main(){
     int t;
     cin>>t;
     while(t--){
+        
         int n;
         cin>>n;
         int* arr = new int[n];
