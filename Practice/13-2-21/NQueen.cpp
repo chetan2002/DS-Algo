@@ -79,6 +79,5 @@ int main(){
     NQueen(board , n , 0);
 
     return 0;
-}
+} 
 
-//
