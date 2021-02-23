@@ -3,6 +3,8 @@
         "ostream": "cpp",
         "iostream": "cpp",
         "cstdio": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "unordered_map": "cpp",
+        "queue": "cpp"
     }
 }
