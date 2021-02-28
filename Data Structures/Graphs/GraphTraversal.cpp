@@ -100,8 +100,18 @@ public:
         }
     }
     void dfs(T src){
+        int components = 1;
         unordered_map<T, bool> visited;
         dfsHelper(src , visited);
+
+        for(auto node: h){
+            if(!visited[node.first]){
+                components++;
+                dfsHelper(node.first , visited);
+            }
+        }
+        cout<<endl<<"Total Components are : "<<endl;
+        cout<<components<<endl;
     }
 };
 
