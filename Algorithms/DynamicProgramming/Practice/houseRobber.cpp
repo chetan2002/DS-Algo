@@ -4,15 +4,19 @@ using namespace std;
 
 ll dp[100005];
 ll recur(ll n , ll *arr){
-	if(n<=0){
-		return dp[n] = 0;
+
+	if(n==0){
+		return dp[n] = arr[n];
+	}
+	if(n==1){
+		return dp[n] = max(arr[n-1] , arr[n]);
 	}
     if(dp[n]!=-1){
         return dp[n];
     }
 
-	ll first = recur(n-2 , arr ) + arr[n-1];
-	ll second = recur(n-3 , arr) + arr[n-2];
+	int first = arr[n]+recur(n-2 , arr);
+	int second = recur(n-1 , arr);
 
 	return dp[n] = max(first , second);
 
@@ -27,7 +31,7 @@ int main(){
 		cin>>arr[i];
 	}
 
-	cout<<recur(n , arr )<<endl;
+	cout<<recur(n-1 , arr )<<endl;
 
 
 	return 0;
