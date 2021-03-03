@@ -2,7 +2,7 @@
 using namespace std;
 
 bool subsetPossible(int n , int* arr , int target){
-    bool dp[n+1][target+1];
+    auto dp = new bool[n+1][target+1];
 
     for(int i=0;i<=n;i++){
 		for(int j=0;j<=target;j++){
