@@ -1,4 +1,4 @@
-//https://hack.codingblocks.com/app/contests/2022/416/problem
+//https://hack.codingblocks.com/app/contests/2022/1881/problem
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -10,30 +10,26 @@ public:
 
 	node(int d){
 		data = d;
-		node->right = nullptr;
-		node->left = nullptr;
+		right = nullptr;
+		left = nullptr;
 	}
 };
 
-node* buildPre(string s){
+node* buildPre(){
 	
-	if(s=="true"){	
-		int d;
-		cin>>d;
+	
+	int d;
+	cin>>d;
+	if(d!=-1){
 		node* root = new node(d);
-		string l;
-		cin>>l;
-		
-			root->left = buildPre(l);
-		
-		string r ;
-		cin>>r;
-		
-			root->right = buildPre(r);
-		
+
+		root->left = buildPre();
+		root->right = buildPre();
 		return root;
+	}else{
+		return nullptr;
 	}
-	return nullptr;
+	
 }
 
 void preOrder(node* root){
@@ -63,20 +59,45 @@ node* lca(node* root , int val1 , int val2){
 		return nullptr;
 	}
 	return (left!=nullptr)?left:right;
+}
+
+int level(node* root , int a , int l){
+	if(root == nullptr){
+		return -1;
+	}
+	if(root->data == a){
+		return l;
+	}
+	int left = level(root->left , a , l+1);
+	if(left == -1){
+		return level(root->right , a , l+1);
+	}
+	return left;
+}
 
 
+int answer(node* root , int a , int b){
+	node* ances = lca(root , a , b);
+
+	int d1 = level(ances , a , 0);
+	int d2 = level(ances , b , 0);
+
+	return d1+d2;
 }
 
 int main(){
 	node* root=nullptr;
-	root = buildPre("true");
-	int val1 ;
-	cin>>val1;
-	int val2;
-	cin>>val2;
+	root = buildPre();
 	
-	node* found = lca(root , val1 , val2);
-	cout<<found->data<<endl;
+	// preOrder(root);
+	// cout<<endl;
+	int t;
+	cin>>t;
+	while(t--){
+		int a, b ;
+		cin>>a>>b;
+		cout<<answer(root , a , b)<<endl;
+	}
 
 	return 0;
 }
