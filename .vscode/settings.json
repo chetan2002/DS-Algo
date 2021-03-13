@@ -6,6 +6,8 @@
         "limits": "cpp",
         "unordered_map": "cpp",
         "queue": "cpp",
-        "algorithm": "cpp"
-    }
+        "algorithm": "cpp",
+        "vector": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
