@@ -9,6 +9,41 @@ class String{
     friend istream& operator>>(istream& is ,String&  ob);
     friend String operator+(const String& s1 ,const String& s2);
     friend bool operator==(const String& s1 , const String& s2);
+    friend void operator+=(String&s1 , const String&s2);
+
+    void merge(int s , int e , char* c){
+        int mid = (s+e)/2;
+        char buffer[e-s+1];
+        int i=s , j = mid+1 , k = 0;
+        while(i<=mid and j<=e){
+            if(c[i]<=c[j]){
+                buffer[k++] = c[i++];
+            }else{
+                buffer[k++] = c[j++];
+            }
+        }
+
+        while(i<=mid){
+            buffer[k++] = c[i++];
+        }
+        while(j<=e){
+            buffer[k++] = c[j++];
+        }
+        k=0;
+        for(i=s;i<=e;i++){
+            c[i] = buffer[k++];
+        }
+    }
+
+    void mergeSort(int s , int e , char* c){
+        if(s>=e){
+            return ;
+        }
+        int mid = (s+e)/2;
+        mergeSort(s , mid ,c);
+        mergeSort(mid+1 , e , c);
+        merge(s , e , c);
+    }
 public: 
     //constuctor
     String(){
@@ -95,7 +130,13 @@ public:
     }
 
     void sort(){
-        
+        int n = strlen(str);
+        char* buffer = new char[n+1];
+        strcpy(buffer , str);
+
+        mergeSort(0 , n-1 , buffer);
+        delete [] str;
+        str = buffer;
     }
 
 };
@@ -139,6 +180,10 @@ String operator+(const String& s1 , const String& s2){
     return aa;
 }
 
+void operator+=(String& s1 , const String& s2){
+    s1 = s1+s2;
+}
+
 int main(){
     // String s1("Hello");
     // String s2;
@@ -154,12 +199,20 @@ int main(){
     // s1.push_back("Why do You keep saying hello");
     // cout<<s1<<endl;
 
-    String s1("Hello");
-    String s2("Hello");
-    if(s1==s2){
-        cout<<"Same"<<endl;
-    }else{
-        cout<<"Not Same"<<endl;
-    }
+    String s1("hello");
+    // String s2("Hello");
+    // if(s1==s2){
+    //     cout<<"Same"<<endl;
+    // }else{
+    //     cout<<"Not Same"<<endl;
+    // }
+    cout<<s1<<endl;
+    s1.pop_back();
+    cout<<s1<<endl;
+    s1.sort();
+    cout<<s1<<endl;
+    String s2("well");
+    s1 += s2;
+    cout<<s1<<endl;
     return 0;
 } 
