@@ -65,6 +65,28 @@ public:
         }
     }
    
+   //list from node
+    List(node* ob , int k){
+        if(ob==nullptr){
+            head=nullptr;
+            tail = nullptr;
+            return;
+        }
+
+        node* tempf = ob;
+        head = new node(tempf->data) ;
+        node* temp = head;
+        tempf = tempf->next;
+        while(tempf!=nullptr and k--){
+            node* n = new node(tempf->data);
+            temp->next = n;
+            temp = temp->next;
+            tempf = tempf->next;
+            tail = temp;
+        }
+    }
+
+
     //find length
     int length(){
        node* temp = head;
@@ -202,9 +224,12 @@ public:
         cout<<endl;
     }
 
-    //sublist 
-
-   
+    
+   //operator[]
+    int operator[](int i){
+        node* temp = nodeAtPos(i);
+        return temp->data;
+    }
 
 
   
@@ -225,10 +250,6 @@ int main(){
         cin>>val;
         l1.push_front(val);
     }
-    l1.print();
-    l1.erase(2,4);
-    // l1.print();
-    cout<<l1<<l1;
-
+    cout<<l1<<endl;
     return 0;
 }
