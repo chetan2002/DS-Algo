@@ -231,8 +231,35 @@ public:
         return temp->data;
     }
 
+    void reverse(){
+        if(head==nullptr){
+            return;
+        }
+        node* prev = nullptr;
+        node* curr = head;
+        node* next;
+        tail = head;
+        while(curr!=nullptr){
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
 
-  
+        head=prev;
+    }
+    
+    int search(int d){
+        int pos =0;
+        node* temp =  head;
+        while(temp!=nullptr){
+            if(temp->data == d){
+                return pos;
+            }
+            pos++ , temp = temp->next;
+        }
+        return -1;
+    }
 };
 
  //"<<" overload
@@ -248,8 +275,13 @@ int main(){
     for(int i=0;i<n;i++){
         int val;
         cin>>val;
-        l1.push_front(val);
+        l1.push_back(val);
     }
-    cout<<l1<<endl;
+    cout<<l1;
+    
+    cout<<l1.search(4)<<endl;
     return 0;
 }
+
+// 10
+// 3 1 2 3 4 8 2 1 3 2
