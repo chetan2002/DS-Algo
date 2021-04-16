@@ -144,6 +144,25 @@ class BinaryTree{
         _mirror(temp->left);
         _mirror(temp->right);
     }
+    
+
+    //build tree using pre and inorder array
+    node* _buildTree(vector<int> pre , vector<int> in , int s , int e , int &pos){
+        if(s>e){
+            return nullptr;
+        }
+        int d = pre[pos++];
+        node* temp = new node(d);
+        int k = -1;
+        for(int j=s;j<=e;j++){
+            if(in[j] == d){
+                k=j;
+            }
+        }
+        temp->left = _buildTree(pre , in , s , k-1 , pos);
+        temp->right = _buildTree(pre , in , k+1 , e , pos);
+        return temp;
+    }
 public:
 
     //constructor
@@ -275,6 +294,12 @@ public:
             }
         }
     }
+    //building tree using pre and in order array
+    void buildTree(vector<int> pre , vector<int> in , int n){
+        destroy();
+        int pos = 0;
+        root = _buildTree(pre , in , 0 , n-1 , pos);
+    }
 };
 
 int main(){
@@ -301,8 +326,13 @@ int main(){
 
     //print level order
     b.levelorder();
-    b.buildLevelOrder();
-    b.levelorder();
+    // b.buildLevelOrder();
+    // b.levelorder();
+
+    vector<int> pre = {8, 3, 1, 6, 4, 7, 10, 14, 13};
+    vector<int> in = {1, 3, 4, 6, 7, 8, 10, 13, 14};
+    b.buildTree(pre , in , pre.size());
+    b.postorder();
 
     
     return 0;
