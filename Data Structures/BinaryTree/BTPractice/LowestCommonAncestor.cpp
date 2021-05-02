@@ -64,7 +64,6 @@ node* lca(node* root , int val1 , int val2){
 	}
 	return (left!=nullptr)?left:right;
 
-
 }
 
 int main(){

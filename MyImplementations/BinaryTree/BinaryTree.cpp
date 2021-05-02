@@ -163,6 +163,84 @@ class BinaryTree{
         temp->right = _buildTree(pre , in , k+1 , e , pos);
         return temp;
     }
+
+    void _bottomView(node* root){
+        if(root==nullptr){
+            return;
+        }
+        queue<pair<node* , int>> q;
+        q.push({root , 0});
+        map<int , int> mp;
+        while(!q.empty()){
+            auto p = q.front();
+            mp[p.second] = p.first->data;
+            q.pop();
+            if(p.first->left!=nullptr){
+                q.push({p.first->left , p.second-1});
+            }
+            if(p.first->right!=nullptr){
+                q.push({p.first->right , p.second+1});
+            }
+        }
+        
+        for(auto c: mp){
+            cout<<c.second<<" ";
+        }
+        cout<<endl;
+    }
+
+    void _topView(node* root){
+        if(root == nullptr){
+            return ;
+        }
+        map<int , int> mp;
+        queue<pair<node*,int>> q;
+        q.push({root , 0});
+        while(!q.empty()){
+            auto p = q.front();
+            q.pop();
+            int ind = p.second;
+            node* n = p.first;
+            if(mp.find(ind)==mp.end()){
+                mp[ind] = n->data;
+            }
+            if(n->left!=nullptr){
+                q.push({n->left , ind-1});
+            }
+            if(n->right!=nullptr){
+                q.push({n->right , ind+1});
+            }
+        }
+        for(auto c: mp){
+            cout<<c.second<<" ";
+        }
+        cout<<endl;
+    }
+    void _rightview(node* temp , int curr , int &maxi){
+        if(temp==nullptr){
+            return;
+        }
+        
+        if(curr>maxi){
+            maxi = curr;
+            cout<<temp->data<<" ";
+        }
+
+        _rightview(temp->right , curr+1 , maxi);
+        _rightview(temp->left , curr+1 , maxi);
+    }
+
+    void _leftview(node* temp , int curr , int &maxi){
+        if(temp==nullptr){
+            return;
+        }
+        if(curr>maxi){
+            maxi = curr;
+            cout<<temp->data<<" ";
+        }
+        _leftview(temp->left , curr+1, maxi);
+        _leftview(temp->right , curr+1 , maxi);
+    }
 public:
 
     //constructor
@@ -300,6 +378,42 @@ public:
         int pos = 0;
         root = _buildTree(pre , in , 0 , n-1 , pos);
     }
+
+    //bottom View
+    void bottomView(){
+        _bottomView(root);
+    }
+
+    //top view
+    void topView(){
+        _topView(root);
+    }
+
+    //left view
+    void leftview(){
+        if(root==nullptr){
+            return;
+        }
+        int maxi = -1;
+        _leftview(root , 0 , maxi);
+        cout<<endl;
+    }
+
+    //right view
+    void rightview(){
+        if(root==nullptr){
+            return;
+        }
+        int maxi =-1;
+        _rightview(root , 0 , maxi);
+        cout<<endl;
+    }
+
+    //distance between nodes
+    int distance(int v1 , int v2){
+        
+    }
+
 };
 
 int main(){
@@ -329,11 +443,20 @@ int main(){
     // b.buildLevelOrder();
     // b.levelorder();
 
+
+    //build tree using preorder and inorder vectors
     vector<int> pre = {8, 3, 1, 6, 4, 7, 10, 14, 13};
     vector<int> in = {1, 3, 4, 6, 7, 8, 10, 13, 14};
     b.buildTree(pre , in , pre.size());
     b.postorder();
 
-    
+    //bottomview and top view and rightview and left view
+    b.bottomView();
+    b.topView();
+    b.leftview();
+    b.rightview();
+
+    //distance between two nodes
+    b.distance(1 , 13);
     return 0;
 }

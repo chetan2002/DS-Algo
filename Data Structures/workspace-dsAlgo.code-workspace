@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"ostream": "cpp",
+			"iostream": "cpp",
+			"cstdio": "cpp",
+			"limits": "cpp",
+			"unordered_map": "cpp",
+			"queue": "cpp",
+			"algorithm": "cpp",
+			"vector": "cpp",
+			"cstring": "cpp",
+			"thread": "cpp"
+		}
+	}
+}
