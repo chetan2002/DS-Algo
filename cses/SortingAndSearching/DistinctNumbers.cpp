@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
+
+
 struct custom_hash {
     static uint64_t splitmix64(uint64_t x) {
         // http://xorshift.di.unimi.it/splitmix64.c
@@ -15,12 +17,17 @@ struct custom_hash {
     }
 };
 
-
-
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-
+ 	ll n;
+ 	cin>>n;
+ 	unordered_set<ll,custom_hash> s;
+ 	for(int i=0;i<n;i++){
+ 		ll val;
+ 		cin>>val;
+ 		s.insert(val);
+ 	}   
+ 	cout<<s.size()<<endl;
     return 0;
 }

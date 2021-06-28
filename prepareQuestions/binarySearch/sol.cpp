@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define ll long long
+#define ll long long int
 
-bool CowsPlaced(ll *a , ll N , ll C , ll mid){
+bool CowsPlaced(vector<ll> a , ll N , ll C , ll mid){
     ll PlacedCows = 1;
     ll prevInd = 0;
     for(ll i=1; i<N ; i++){
@@ -17,7 +17,7 @@ bool CowsPlaced(ll *a , ll N , ll C , ll mid){
     return PlacedCows==C;
 }
 
-ll aggressiveCows(ll *a , ll N , ll C){
+ll answer(vector<ll> a , ll N , ll C){
      ll s = 0 ;
      ll e = INT_MAX;
      ll ans = -1;
@@ -34,18 +34,20 @@ ll aggressiveCows(ll *a , ll N , ll C){
 }
 
 int main(){
-    ll t;cin>>t;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+ 	string s;
+ 	cin>>s;
+	ll k;
+	cin>>k;
+	vector<ll> v;
+	for(int i=0;i<s.length();i++){
+		if(s[i]=='0'){
+			v.push_back(i+1);
+		}
+	}   
+	ll n = v.size();
+	cout<<answer(v , n , k)<<endl;
 
-    while(t--){
-        ll n , c;
-        cin>>n>>c;
-        ll *a = new ll[n];
-        for(ll i=0 ; i < n ; i++ ){
-            cin>>a[i];
-        }
-        sort(a , a+n);
-    
-        cout<< aggressiveCows(a , n , c) << endl;
-    }
     return 0;
 }

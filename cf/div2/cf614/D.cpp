@@ -38,7 +38,7 @@ int main(){
  	vector<pair<ll,ll>> vp;
  	vp.push_back({x0,y0});
  	ll limit  = (1LL << 62) -1;
- 	for(int i=1;i<70;i++){
+ 	for(int i=1;i<n;i++){
  		ll val1 = ax*(vp[i-1].first)+bx;
  		ll val2 = ay*(vp[i-1].second)+by;
 

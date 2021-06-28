@@ -1,0 +1,24 @@
+You are given a binary string S, you have to replace exactly k 0's to *(star) such that the minimum difference between any two * is as large as possible . What is the largest minimum distance between two '*'.
+
+INPUT FORMAT:
+First line of input contains a binary string S.
+Second line of input contains an integer k(2<=K<=100000).
+
+OUTPUT FORMAT:
+For each test case output one integer: the largest minimum distance.
+
+
+Example : 
+
+INPUT : 
+0010111001
+3
+
+OUTPUT : 
+3
+
+Output details: 
+we can put stars as 
+*01*111*01 
+*01*1110*1
+

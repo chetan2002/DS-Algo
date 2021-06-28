@@ -1,0 +1,84 @@
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+      },
+      ShowMathMenu: false,
+      TeX: {
+        extensions: ["color.js"],
+        noUndefined: {
+          attributes: {
+            mathcolor: "red",
+            mathbackground: "#FFEEEE",
+            mathsize: "90%"
+          }
+        },
+        Macros: { href: "{}" }
+      },
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [ ["$$","$$"], ["\\[", "\\]"] ],
+        multiline: true,
+        processEscapes: true
+      },
+      menuSettings: {
+        context: "Browser"
+      },
+      messageStyle: "none"
+    });
+    </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<p>Arun has a hobby of <a href="https://i.chzbgr.com/full/6286785280/hAD9F6299/best-prize-ever">crowncaps</a> collection and he owns many crowncaps. Today, he got<b>N</b> crowncaps and decided to form a pyramid using these crowncaps.</p>
+
+<p>Triangle formation is given as follows:</p>
+<ul>
+<li><b>First</b> row can only have <b>one</b> crowncap.</li>
+<li><b>2<sup>nd</sup></b> row can only have <b>two</b> crowncaps.</li>
+<li><b>3<sup>rd</sup></b> row can only have <b>three</b> crowncaps.</li>
+<li> and so on as shown in the given figure.</li>
+</ul>
+
+<p>The pyramid would look something like this:</p>
+<p>*</p>
+<p>**</p>
+<p>***</p><br>
+<p>Arun wants to form a pyramid with maximum possible height using at most <b>N</b> crowncaps. He is not so good with maths so can you help him in finding the maximum height of the pyramid?</p>
+
+<h3>Input</h3>
+<p>The first line of input contains a single integer <b>T</b> denoting the number of test cases. </p>
+<p>The first and the only line of each test case contains an integer <b>N</b> denoting the number of crowncaps Arun has.</p>
+
+<h3>Output</h3>
+<p>For each test case, output a single line containing an integer corresponding to the maximum possible height of the pyramid that Arun can get.</p>
+
+<h3>Constraints</h3>
+<ul>
+<li><b>1 ≤ T ≤ 100</b></li>
+<li><b>1 ≤ N ≤ 10<sup>9</sup></b></li>
+</ul>
+
+<h3>Example</h3>
+<pre>
+<b>Input</b>
+<tt>3
+4
+5
+7</tt>
+
+<b>Output</b>
+<tt>2
+2
+3</tt>
+</pre>
+
+<h3>Explanation</h3>
+<ul>
+<li><b>Test 1:</b> Arun can't form a pyramid with height > 2 as it requires atleast 6 crowncaps.</li>
+<li><b>Test 2:</b> Arun can't form a pyramid with height > 2 as it requires atleast 6 crowncaps.</li>
+<li><b>Test 3:</b> Arun can't form a pyramid with height > 3 as it requires atleast 10 crowncaps.</li>
+</ul>
+<aside style='background: #f8f8f8;padding: 10px 15px;'><div></div></aside>

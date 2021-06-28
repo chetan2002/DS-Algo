@@ -20,7 +20,28 @@ struct custom_hash {
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-
+ 	
+ 	ll n ;
+ 	cin>>n;
+ 	ll arr[n];
+ 	ll prefix[n+1]={0};
+ 	for(int i=0;i<n;i++){
+ 		cin>>arr[i];
+ 		prefix[i+1] = prefix[i]+arr[i];
+ 	}
+ 	ll ans =0;
+ 	unordered_set<ll , custom_hash> s;
+ 	s.insert(0);
+ 	ll begin = 0 , end = 0;
+ 	while(begin<n){
+ 		while(end<n and !s.count(prefix[end+1])){
+ 			end++;
+ 			s.insert(prefix[end]);
+ 		}
+ 		ans += end-begin;
+ 		s.erase(prefix[begin]);
+ 		begin++;
+ 	}
+ 	cout<<ans<<endl;
     return 0;
 }
