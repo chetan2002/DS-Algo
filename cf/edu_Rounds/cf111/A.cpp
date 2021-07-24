@@ -8,12 +8,14 @@ using namespace std;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
- 	ll n;cin>>n;   
- 	vector<pair<ll,ll>> vp(n);
- 	for(auto &i: vp){
- 		cin>>i.first;
- 		cin>>i.second;
- 	}
- 	sort(vp.begin(),vp.end());
+ 	
+ 	ll t;
+ 	cin>>t;
+ 	while(t--){
+ 		ll n;
+ 		cin>>n;
+ 		double sum = sqrt(n);
+ 		cout<<ceil(sum)<<endl;
+ 	}   
     return 0;
 }
