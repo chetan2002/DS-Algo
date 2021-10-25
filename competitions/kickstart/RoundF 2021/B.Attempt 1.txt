@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+
+
+
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t;
+    cin>>t;
+    for(int l=1;l<=t;l++){
+    	ll d , n , k;
+    	cin>>d>>n>>k;
+    	vector<vector<ll>> vp(d+1);
+    	for(int i=0;i<n;i++){
+    		int h, s, e;
+    		cin>>h>>s>>e;
+    		vp[s].push_back(h);
+    		vp[e].push_back(-h);
+    	}
+    	ll count = 0;
+    	multiset<ll, greater<ll>> s;
+    	for(int i=1;i<=d;i++){
+    		for(auto c: vp[i]) {
+    			if(c>=0){
+    				s.insert(c);
+    			}else{
+    				auto it = s.find(-c);
+    				s.erase(it);
+    			}
+    		}
+    		int a = 0;
+    		ll sum =0 ;
+    		for(auto c: s) {
+    			if(a==k) {
+    				break;
+    			}
+    			// cout<<i<<endl;
+    			// cout<<c<<" ";
+    			sum += c;
+    			a++;
+    		}
+    		// cout<<endl;
+    		count = max(count , sum);
+
+    	}
+    	cout<<"Case #"<<l<<": "<<count<<endl;
+    }
+    return 0;
+}

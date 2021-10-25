@@ -1,0 +1,65 @@
+they got late 12 hrs almost in taking my interview
+it was scheduled at 9AM and they started at 8.30 PM
+
+ques1. 
+DSA based 
+https://leetcode.com/problems/minimum-window-substring/
+
+
+s = "ADOBECODEBANC", 
+t = "ABC"
+
+Goal 
+Minimum substring from S which contains all the chars of t
+
+Substring - ADOBEC
+Substring - BANC
+
+Return substring
+
+Class IonTest {
+public:
+    string findMinimumStr(string s , string t){
+        int n = s.length();
+        int i=0, j=0;
+        unordered_map<char, int> mp;
+        int minimumLength = INT_MAX;
+        string minimumString = "";
+        bool LastMoveWasJ = true;
+        while (j<n) {
+            if(LastMoveWasJ) {
+                mp[s[j]]++;
+            }
+            
+            bool isPresent = true;
+            for(auto c: t) {
+                if(mp[c]==0) {
+                    isPresent = false;
+                    break;
+                }
+            }
+            if(isPresent) {
+               string a = s.substr(i, j-i+1);
+               int lengthOfPresentString = a.length();
+               if(lengthOfPresentString < minimumLength) {
+                   minimumLength =lengthOfPresentString;
+                   minimumString = a;
+               }
+               mp[s[i]]--;
+               i++;
+               LastMoveWasJ = false;
+            } else {
+                j++;
+                LastMoveWasJ = true;
+            }
+        }
+        return minimumString;
+    }
+}
+
+
+
+
+2nd Question : 
+Design ATM 
+
