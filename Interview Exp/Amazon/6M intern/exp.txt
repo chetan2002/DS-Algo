@@ -1,0 +1,41 @@
+#Round1 -> 23 Nov 11AM
+
+started with introduction, he was very convinced with my introduction and kept telling me that i have good profile for leetcode
+then asked me about my projects and i explained it well.
+then started with 1st question
+
+1. We are given a 2d matrix m*n , and it has 0s and 1s, 1 means there is a node and it can communicate with other node if there is a node in same row or column as this node, and if it can communicate, it means it is a server (if there is no other 1 on same row or column, then it is not a server). Count no. of servers in the matrix
+=> Took me long to even understand the question and hence i thought it is a graph question, then i gave him a brute force solution which would be checking for every node and then horizontally checking if there is any other node in same row or column, complexity => O(n*m*(n+m))
+=> then I had to code it and he couldn't understand how my code was working and made me dry run it on 5 test cases and it took almost 40 mins
+=> then he was convinced and i gave verbally told him other approach using map and storing nodes in each row and column and checking => complexity => O(n*m) time , O(n+m) space
+
+Then he gave me another question
+
+2. https://leetcode.com/problems/backspace-string-compare
+
+=> took me 3 mins to explain the approach and then 2 min to code it, overall after dry run on multiple test cases, we were done within 12 mins
+
+after that he asked me if i have any questions for him and we had a good conversation within 6 mins.
+
+
+
+
+
+Soon my another round was scheduled
+#Round2 -> 23 Nov 3PM
+
+started with the introduction, his mic wasn't working properly so there was some issue but went fine
+then he started with questions, 
+1. question was not straightforward but it was kind of given 2 arrays and i had to find the longest common subsequence for them, (Again, not straightforward, but easy). made me do recursive and then memoise it
+2. then he asked me to print the subsequence with the maximum length
+
+this whole thing took almost 12 mins for me to completely explain and then code and then dry run on test cases
+3. Then he asked me to explain real life use of Backtracking and asked me to explain approach for N-queens problem
+
+done in 4 mins
+
+then he started with behavioural question
+*) Have you ever learnt some skill on your own, tell me about it.
+=> i used STAR method(Situation, Task, Action, Result) to answer this question and he seemed convinced.
+
+It was almost 3.22 and then he asked me if i have any questions for him and then we again had a good convo about the work culture of amazon and the interview ended on 3.30 (30 mins tho it was for 1 hr).

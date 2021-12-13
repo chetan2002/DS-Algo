@@ -1,0 +1,8 @@
+Failed this round
+
+Managerial round:
+he asked about usthaan and gci and i wasn't convincing enough due to the reason i can't say and show things related to usthaan.
+He asked me about load testing and i explained it really good but he wasn't convinced and I failed to answer what i used for load testing i.e. artillery.io
+later he asked me a question: 
+> if I have a company with 100,000 active users, how much work force do i require for customer support.
+I failed to answer it properly since i lost my confidence on load testing part

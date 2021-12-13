@@ -1,0 +1,42 @@
+# Round 1
+
+Started with introduction, interviewer was very friendly
+then came dsa question
+1. Reverse a doubly linkedlist
+=> as first i was shocked as it was too easy to be asked but then i did it within 5 mins and explained the approach as well, did dry run on 3-4 test cases
+
+2. then he asked what is oops and virtual function, overloading , polymorphism, friend function, etc. 
+  also asked me about how the cpp would print a multiple inheritence for 2 classes with same function
+
+3. then he asked me if i know dbms and oops and i told him i can answer questions but i haven't revised
+then he asked if i have any questions for him and we had a conversation . Interview ended in 30 mins
+
+
+
+
+
+
+
+# Round 2 (behavioural + technical + managerial)
+
+started with introduction then he asked me what is my fav subject and i told him dsa
+gave me a question 
+
+Q)
+	char i;
+	for(i=0; i<256; i++) {
+		printf("i = %d\n", i);
+	}
+
+	how many lines would be printed?
+=> I was very confused if it would be 256 or infinite , I thought it had something to do with 0 being initialised to char value and if it would take ASCII or 0 value
+then later i answered it wrong, he told me it would print infinite lines as char values are limited from -128 to 127 and hence won't go till 256
+
+Q) https://leetcode.com/problems/reverse-words-in-a-string/  O(N) time and O(1) space and no lib/stl function
+
+=> I explained the approach in O(N*2) but couldn't think of O(N) approach, after trying he asked me to reverse the string and then i was able to solve the question easily
+
+Later he asked me a few behavioural questions and about my projects, and a few OOPS based questions
+and asked me why i want to join tokopedia
+then he asked if i have any questions for him and then we had a convo about tokopedia and work culture
+Interview ended in 30 mins
