@@ -46,10 +46,10 @@ int bottomUp(int *price , int *weight , int capacity , int n){
 }
 
 int main(){
-    int price[] = {13 , 13 , 16};
-    int weight[] = {7 , 7 , 8};
+    int price[] = {5, 12, 8, 1};
+    int weight[] = {4, 8, 5, 3};
     int n = sizeof(weight)/sizeof(int);
-    int capacity = 14;
+    int capacity = 10;
     int dp[100][100];
     memset(dp , -1 , sizeof(dp));
     cout<<bottomUp(price , weight , capacity , n)<<endl;
