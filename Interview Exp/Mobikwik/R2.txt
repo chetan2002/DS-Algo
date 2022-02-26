@@ -1,0 +1,105 @@
+19 feb 2022 5PM
+
+I wasn't sure about the performance in the last interview because I didn't respond well to the questions asked in the technical discussions but still got promoted to next round
+
+The interview started with introduction and then he started asking me question on core subjects.
+
+
+Interview started with a DSA question
+
+Q) Divide the unsorted array in “k” partitions such that sum of the maximums of all the partitions is minimum.
+
+example:
+ K =2,
+(6,5,4,3,2) (1)
+	6     1   -> 7
+[6,5,4,3,2,1]
+
+[5, 2, 8, 1, 6] => 3
+
+
+I started thinking and could only think of using recursion and so i told him that question isn't greedy and needs to address all the possible outcomes, so would need recursion initially
+
+he told me that I am wrong and we need DP to solve the question {WHATT?? WHY WOULD YOU SAY THAT, RECURSION CAN BE MEMOISED RIGHT!!! }
+
+then I told him that we can move to dp after we are done with recursion, and i can memoise the solution
+and then I explained him the approach,
+he kept interrupting me and telling me i am wrong and then used to tell same logic I told just rephrasing words. It seemed like he wasn't even listening to me and was kinda trying to solve question by himself
+
+then I started coding and the due to my habit of asking ("is it clear to you?"), I found out that interviewer was not actually present there while I was coding because there was no response
+
+So I completed the coding and then he came back, I then explained what I did and about the confusion I have in the base case and that I would correct it when we dry run it
+
+He then started reading the code himself, I told him I can dry run it for him but he wasn't there to interview me I guess
+then he told me about my mistake in the base case, I told him that i wasn't sure about it and wanted to fix it later
+
+I also messed up in return condition, and then he himself corrected it and told me i wrote the wrong code
+
+this all took 35mins approx
+then we moved to core subjects
+
+He asked me about multithreading,
+Multitasking vs Multiprocessing OS,
+
+Demand Paging and API
+
+I explained multi tasking and multiprocessing but i think i was wrong in explaining that
+then i couldn't explain demand paging and then told him about API
+
+so I answered 50% of questions
+
+
+I was expecting a rejection but still got promoted to next round;
+
+
+
+``````````````````````````````````````````````````````
+Here is the code I wrote:
+
+
+// solution
+vector<vector<int>> dp;
+
+int recursiveAnswer(vector<int> &v, int i, int k, int maxim) {
+	if(i==n) {
+		if(k==1) {
+			return maxim;
+}else {
+	return -1;
+}
+}
+
+
+if(k==0) {
+	return -1;
+}
+
+maxim = max(maxim, v[i]); // maximum upto i th index
+
+int ans = -1;
+// if we partition right now
+int value1 = recursiveAnswer(v, i+1, k-1, 0);	// 8
+if(value1!=-1) {			
+		value1 += maxim;
+}
+// if we include it in prev partition
+int value2 = recursiveAnswer(v, i+1, k, maxim);  // -1
+if(value1==-1 && value2 > 0) {
+	return value2;
+}
+if(value2 == -1 && value1 > 0) {
+	return value1;
+}
+return min(value1, value2);
+
+}
+
+
+int minKMaxPartition(vector<int> &v, int k) {
+int n = v.size();
+//dp.resize(n+1, vector<int>(k+1, -1));
+return recursiveAnswer(v, 0, k, 0);
+}
+
+
+

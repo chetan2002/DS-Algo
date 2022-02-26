@@ -1,0 +1,30 @@
+19-feb-2022
+
+The interview started with the introduction
+The interviewer was very friendly and interested in knowing more about me
+then he gave a very easy question:
+
+Q) we have a box (l, b, h) and we have to calculate the length of ribbon required to wrap it
+	given that length of the knot is 20m
+then a follow up
+Q) the knot would be the difference between length and width
+
+Then he told me that we can move either to harder question of DSA or we can have a technical discussion
+
+I told him that I've practiced DSA alot and it would be mostly a bad luck if I am not able to solve it and mostly wouldn't be an issue for me
+and hence technical discussion would be more fun and a more learning exp
+
+so we started discussing topics like
+
+Multi threading vs Multiprocessing
+
+UDP vs TCP
+
+NoSQL vs SQL
+
+cache 
+
+and other basic things (and I didnt answer any of them, he told me about all of them then)
+he then asked me if I were to complete my projects after knowing about these, what would i implement and after that we had a decent discussion and then the interview ended.
+
+I asked him about the mobikwik work culture and avg day in mobikwik

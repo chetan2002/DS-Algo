@@ -1,0 +1,30 @@
+Got Rejected in this round
+
+1 hr -> 2 FEB 2022
+
+The Interview started with the introduction and then he gave me a DSA question based on recursion
+
+Q) https://leetcode.com/problems/palindrome-partitioning/
+
+Straightforward I didn't have anything in mind and told him I can implement it with recursion
+and then I told him about the approach
+Then while coding for Recursi
+it took me 40 mins to solve the question and explain it to him
+
+I messed up in time complexity but he was convinced with what I told him though it was wrong
+
+then he moved to next question which was extremely hard
+
+nearly 1 year ago, that question was in the leetcode contest and wasn't solved by many people at that time as well
+Q) https://leetcode.com/problems/minimum-adjacent-swaps-for-k-consecutive-ones/
+
+I took 10 mins and came up with the approach, but I felt it was not wrong, i tried telling him but wasn't sure myself so I started thinking again
+Then I tried explaining him the same approach and still wasn't confident about it
+
+Then after 2-3 mins I told him I am getting nothing
+He told me that time is up for the interview and Thanks for attending
+
+Later when I checked the solution, The approach I was trying was almost what was needed to solve the question with some extra calculations and I feel like I did good considering the level of the question
+
+
+I got rejected in the round but I lost respect for the company which has no level set for the standard of questions to be asked in the interview. I still think the question was extremely hard.

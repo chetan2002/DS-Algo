@@ -1,0 +1,114 @@
+Feb 23, 2022 -> 4PM
+
+time: 1 hour
+
+It wasn't actually a telephonic round, It was hosted on Hackerrank and was mostly a proper interview
+
+Started without an introduction, there were two interviewers
+
+Started with asking me about OOP, and almost spent 35 mins asking oops
+
+asked, features of oop
+and kept expanding in the topic
+
+encapsulation
+polymorphism, runtime-compiletime
+(asked me good questions related to overloading functions ->sum(int, double) )
+inheritence
+abstraction -> maybe messed up explaining this
+
+
+then they asked me about virtual function, and gave me a question
+and i needed to write the output:
+
+``````````````````````````````````````````
+Q)
+class base {
+public:
+	virtual void print() {
+		cout<<"in base print"<<endl;
+	}
+	void show() {
+		cout<<"in base show"<<endl;
+	}
+
+};
+
+class derived {
+public:
+	void print() {
+		cout<<"in derived print"<<endl;
+	}
+	void show() {
+		cout<<"in derived show"<<endl;
+	}
+};
+
+int main() {
+	base b1 = new base();
+	b1.print();
+	b1.show();
+
+	dervied d1 = new derived();
+	d1.print();
+	d1.show();
+
+	base* b = new derived();
+	b.print();
+	b.show();
+
+	derived* d = new base();
+	d.print();
+	d.show();
+}
+
+````````````````````````````````````````
+I don't know if I did it wrong but i wasn't sure about the output i wrote
+
+then they kept asking me more about oops
+
+then they switched to Operating system and asked me about the Virtual Memory.
+
+I tried explaining but they kept going in depth and I got confused and told them i am not proficient in OS
+
+it took 42 mins till now for all this
+
+then they gave a DSA question
+````````````````````````````````
+Q) Design a Data Structure for integer, which has insert, remove and contains function in O(1)
+and a print function which prints all the integers in order of their insertion
+``````````````````````````
+-> I asked if there would be duplicates and they told me that for now we can consider that there are no duplicates
+
+I gave the approach 
+we can use a linkedlist and append in the begining
+We can use a map{unordered_map<integer, Node*> to map the node with integer }
+and explained the process
+
+They then asked me more about hashing and collisions
+
+this all took 6-7 mins and 50 mins of interview was done
+
+then they switched to DBMS and asked about ACID Properties
+
+I explained in details everything
+then they switched back to dsa and asked a follow up of the question
+
+```````````````````````````````
+Q) consider the prev question and let's say we have duplicate insertions, but while removing them we will remove the integer occurance that was last inserted
+```````````````````````````````````
+
+I explained the approach that instead of map of Integer->Node*
+we will use map of Integer->Stack<Node*>
+
+and then they asked 
+``````````````````````````+``
+what if we want to remove the integer occurance which was inserted first
+``````````````````````````
+
+and I told them that we can use a queue and explained the process
+
+
+Overall Interview went good.
+They spent almost 45-48 mins on Core Subjects
+and 10 mins approx on DSA including follow up
